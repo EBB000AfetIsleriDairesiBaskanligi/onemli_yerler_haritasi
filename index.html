@@ -154,7 +154,7 @@
             var hexSinir = document.getElementById('ilSinirRenk')
             var hexCode = hexSinir.value
 
-            var geojsonURL = "./FakeDB/eskisehir/il.geojson";
+            var geojsonURL = "./fakeDB/eskisehir/il.geojson";
             var xhr = new XMLHttpRequest();
             xhr.open("GET", geojsonURL, true);
             xhr.onreadystatechange = function () {
@@ -176,7 +176,7 @@
 
         // İlçe Sınırları
         function ilceleriGoster() {
-        var geojsonURL = "./FakeDB/ilceler/ilceDuzen.geojson";
+        var geojsonURL = "./fakeDB/ilceler/ilceDuzen.geojson";
         var xhr = new XMLHttpRequest();
         xhr.open("GET", geojsonURL, true);
         xhr.onreadystatechange = function () {
@@ -208,7 +208,7 @@
         function mahalleGoster() {
         var ilce = document.getElementById('ilceler').value
 
-        var geojsonURL = "./FakeDB/mahalle/mahalleDuzen.geojson";
+        var geojsonURL = "./fakeDB/mahalle/mahalleDuzen.geojson";
         var xhr = new XMLHttpRequest();
         xhr.open("GET", geojsonURL, true);
         xhr.onreadystatechange = function () {
