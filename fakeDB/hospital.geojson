@@ -1,0 +1,23 @@
+{
+"type": "FeatureCollection",
+"name": "hospital",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Eskişehir Özel Anadolu Hastanesi", "Field3": 39.767307, "Field4": 30.5139346, "Field5": "221 48 48" }, "geometry": { "type": "Point", "coordinates": [ 30.5139346, 39.767307 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Eskişehir Şehir Hastanesi", "Field3": 39.7481903, "Field4": 30.595138, "Field5": "611 40 00" }, "geometry": { "type": "Point", "coordinates": [ 30.595138, 39.7481903 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Acıbadem Eskişehir Hastanesi", "Field3": 39.7850367, "Field4": 30.4949733, "Field5": "214 44 44" }, "geometry": { "type": "Point", "coordinates": [ 30.4949733, 39.7850367 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Özel Ümit Tıp Merkezi", "Field3": 39.7736757, "Field4": 30.5261596, "Field5": "335 03 35" }, "geometry": { "type": "Point", "coordinates": [ 30.5261596, 39.7736757 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Özel Ümit Hastanesi", "Field3": 39.7901634, "Field4": 30.4706743, "Field5": "335 03 35" }, "geometry": { "type": "Point", "coordinates": [ 30.4706743, 39.7901634 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Verta Tıp Merkez", "Field3": 39.7717084, "Field4": 30.516411, "Field5": "220 07 18" }, "geometry": { "type": "Point", "coordinates": [ 30.516411, 39.7717084 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Özel Ümit Vişnelik Hastanesi", "Field3": 39.762493, "Field4": 30.499645, "Field5": "335 03 35" }, "geometry": { "type": "Point", "coordinates": [ 30.499645, 39.762493 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Eskişehir Osmangazi Üniversitesi Sağlık Uygulama ve Araştırma Hastanesi", "Field3": 39.7516157, "Field4": 30.4906507, "Field5": "239 29 79" }, "geometry": { "type": "Point", "coordinates": [ 30.4906507, 39.7516157 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Yunus Emre Devlet Hastanesi Semt Polikliniği", "Field3": 39.7753665, "Field4": 30.5156315, "Field5": "---" }, "geometry": { "type": "Point", "coordinates": [ 30.5156315, 39.7753665 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Reşadiye Özel Tıp Merkez", "Field3": 39.7719879, "Field4": 30.5168672, "Field5": "---" }, "geometry": { "type": "Point", "coordinates": [ 30.5168672, 39.7719879 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Kalp Ve Göğüs Hastalıkları Hastanesi", "Field3": 39.75712499, "Field4": 30.49121109, "Field5": "---" }, "geometry": { "type": "Point", "coordinates": [ 30.49121109, 39.75712499 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Yunus Emre Devlet Hastanesi İki Eylül Hizmet Binası (Fiziksel Tıp ve Rehabilitasyon)", "Field3": 39.7726256, "Field4": 30.5120695, "Field5": "220 45 30" }, "geometry": { "type": "Point", "coordinates": [ 30.5120695, 39.7726256 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Eskişehir Göz Merkezi", "Field3": 39.77470309, "Field4": 30.5174489, "Field5": "444 1 604" }, "geometry": { "type": "Point", "coordinates": [ 30.5174489, 39.77470309 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Yunus Emre Devlet Hastanesi", "Field3": 39.7861472, "Field4": 30.4881225, "Field5": "211 95 95" }, "geometry": { "type": "Point", "coordinates": [ 30.4881225, 39.7861472 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Özel Elifana Çocuk Sağlığı Ve Hastalıkları Merkezi", "Field3": 39.7644352, "Field4": 30.5096469, "Field5": "221 11 22" }, "geometry": { "type": "Point", "coordinates": [ 30.5096469, 39.7644352 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Eskişehir Özel Gürlife Hastanesi", "Field3": 39.7952243, "Field4": 30.5350465, "Field5": "211 02 11" }, "geometry": { "type": "Point", "coordinates": [ 30.5350465, 39.7952243 ] } }
+]
+}

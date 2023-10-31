@@ -1,0 +1,24 @@
+{
+"type": "FeatureCollection",
+"name": "itfaiye",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "AD": "Esentepe İtfaiye Grubu", "X": 39.796513, "y": 30.5176263 }, "geometry": { "type": "Point", "coordinates": [ 30.5176263, 39.796513 ] } },
+{ "type": "Feature", "properties": { "AD": "Emek İtfaiye Grubu", "X": 39.7499833, "y": 30.554087 }, "geometry": { "type": "Point", "coordinates": [ 30.554087, 39.7499833 ] } },
+{ "type": "Feature", "properties": { "AD": "Batıkent İtfaiye Grubu", "X": 39.78582, "y": 30.46654 }, "geometry": { "type": "Point", "coordinates": [ 30.46654, 39.78582 ] } },
+{ "type": "Feature", "properties": { "AD": "Gültepe İtfaiye Grubu", "X": 39.75041, "y": 30.51273 }, "geometry": { "type": "Point", "coordinates": [ 30.51273, 39.75041 ] } },
+{ "type": "Feature", "properties": { "AD": "İnönü İtfaiye Grubu", "X": 39.8236597, "y": 30.144384 }, "geometry": { "type": "Point", "coordinates": [ 30.144384, 39.8236597 ] } },
+{ "type": "Feature", "properties": { "AD": "Alpu İtfaiye Grubu", "X": 39.77121, "y": 30.96099 }, "geometry": { "type": "Point", "coordinates": [ 30.96099, 39.77121 ] } },
+{ "type": "Feature", "properties": { "AD": "Beylikova İtfaiye Grubu", "X": 39.70361, "y": 31.19229 }, "geometry": { "type": "Point", "coordinates": [ 31.19229, 39.70361 ] } },
+{ "type": "Feature", "properties": { "AD": "Çifteler İtfaiye Grubu", "X": 39.37442, "y": 31.0412 }, "geometry": { "type": "Point", "coordinates": [ 31.0412, 39.37442 ] } },
+{ "type": "Feature", "properties": { "AD": "Günyüzü İtfaiye Grubu", "X": 39.32916, "y": 31.82553 }, "geometry": { "type": "Point", "coordinates": [ 31.82553, 39.32916 ] } },
+{ "type": "Feature", "properties": { "AD": "Han İtfaiye Grubu", "X": 39.15931, "y": 30.86322 }, "geometry": { "type": "Point", "coordinates": [ 30.86322, 39.15931 ] } },
+{ "type": "Feature", "properties": { "AD": "Mahmudiye İtfaiye Grubu", "X": 39.49973, "y": 30.98336 }, "geometry": { "type": "Point", "coordinates": [ 30.98336, 39.49973 ] } },
+{ "type": "Feature", "properties": { "AD": "Mihalgazi İtfaiye Grubu", "X": 40.02839, "y": 30.57142 }, "geometry": { "type": "Point", "coordinates": [ 30.57142, 40.02839 ] } },
+{ "type": "Feature", "properties": { "AD": "Mihalıççık İtfaiye Grubu", "X": 39.87328, "y": 31.48898 }, "geometry": { "type": "Point", "coordinates": [ 31.48898, 39.87328 ] } },
+{ "type": "Feature", "properties": { "AD": "Sarıcakaya İtfaiye Grubu", "X": 40.0381, "y": 30.61384 }, "geometry": { "type": "Point", "coordinates": [ 30.61384, 40.0381 ] } },
+{ "type": "Feature", "properties": { "AD": "Seyitgazi İtfaiye Grubu", "X": 39.4488, "y": 30.69036 }, "geometry": { "type": "Point", "coordinates": [ 30.69036, 39.4488 ] } },
+{ "type": "Feature", "properties": { "AD": "Sivrihisar İtfaiye Grubu", "X": 39.45104, "y": 31.53079 }, "geometry": { "type": "Point", "coordinates": [ 31.53079, 39.45104 ] } },
+{ "type": "Feature", "properties": { "AD": "Kırka İtfaiye Grubu", "X": 39.29407, "y": 30.52895 }, "geometry": { "type": "Point", "coordinates": [ 30.52895, 39.29407 ] } }
+]
+}

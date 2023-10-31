@@ -1,0 +1,16 @@
+{
+"type": "FeatureCollection",
+"name": "police",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Kurtuluş Polis Merkez Amirliği", "Field3": 39.7632744, "Field4": 30.5572, "Field5": "237 52 30" }, "geometry": { "type": "Point", "coordinates": [ 30.5572, 39.7632744 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Odunpazarı İlçe Emniyet Müdürlüğü", "Field3": 39.770062, "Field4": 30.517526, "Field5": "230 64 22" }, "geometry": { "type": "Point", "coordinates": [ 30.517526, 39.770062 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Tepebaşı İlçe Emniyet Müdürlüğü", "Field3": 39.7785058, "Field4": 30.5171952, "Field5": "323 62 25" }, "geometry": { "type": "Point", "coordinates": [ 30.5171952, 39.7785058 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Ertuğrulgazi Polis Merkez Amirliği", "Field3": 39.775458, "Field4": 30.4781993, "Field5": "---" }, "geometry": { "type": "Point", "coordinates": [ 30.4781993, 39.775458 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Yıldıztepe Şehit Ali Gaffar Okkan Polis Merkezi Amirliği", "Field3": 39.7591244, "Field4": 30.5100306, "Field5": "---" }, "geometry": { "type": "Point", "coordinates": [ 30.5100306, 39.7591244 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "İnönü İlçe Emniyet Amirliği", "Field3": 39.7724086, "Field4": 30.5274778, "Field5": "591 23 88" }, "geometry": { "type": "Point", "coordinates": [ 30.5274778, 39.7724086 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Tepebaşı Polis Merkezi Amirliği", "Field3": 39.7900168, "Field4": 30.4832048, "Field5": "335 12 99" }, "geometry": { "type": "Point", "coordinates": [ 30.4832048, 39.7900168 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Sakarya Polis Merkez Amirliği", "Field3": 39.790275, "Field4": 30.52283619, "Field5": "335 48 68" }, "geometry": { "type": "Point", "coordinates": [ 30.52283619, 39.790275 ] } },
+{ "type": "Feature", "properties": { "Field1": null, "Field2": "Eskişehir Emniyet Müdürlüğü", "Field3": 39.7976752, "Field4": 30.5197261, "Field5": "230 27 73" }, "geometry": { "type": "Point", "coordinates": [ 30.5197261, 39.7976752 ] } }
+]
+}
