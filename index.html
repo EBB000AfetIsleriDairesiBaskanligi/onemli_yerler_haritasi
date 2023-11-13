@@ -73,6 +73,35 @@
               <button class="btn btn-primary w-100 my-2" onclick="mahalleGoster()">Mahalleleri Getir</button>
             </div>
             
+            <div>
+              <button class="btn btn-primary" onclick="mahalleOzelIslemler()">Mahalle Verisi</button>
+              <div id="mahalleVeri" hidden>
+                <select name="" id="ozelIlce">
+                  <option value="bos">İncelenecek İlçeyi Seçiniz</option>
+                <option value="ODUNPAZARI">Odunpazarı</option>
+                <option value="TEPEBAŞI">Tepebaşı</option>
+                <option value="ALPU">Alpu</option>
+                <option value="BEYLİKOVA">Beylikova</option>
+                <option value="ÇİFTELER">Çifteler</option>
+                <option value="GÜNYÜZÜ">Günyüzü</option>
+                <option value="HAN">Han</option>
+                <option value="İNÖNÜ">İnönü</option>
+                <option value="MAHMUDİYE">Mahmudiye</option>
+                <option value="MİHALGAZİ">Mihalgazi</option>
+                <option value="MİHALIÇÇIK">Mihalıççık</option>
+                <option value="SARICAKAYA">Sarıcakaya</option>
+                <option value="SEYİTGAZİ">Seyitgazi</option>
+                <option value="SİVRİHİSAR">Sivrihisar</option>
+                </select>
+                <button class="btn btn-secondary" onclick="mahalleOzelOnay()">Onayla</button>
+                <select name="" id="mahalleOzelSelect">
+                  <option value="">İncelenecek Mahalle Seçiniz</option>
+                </select>
+                <button class="btn btn-danger" onclick="mahalleyeGoreGoster()">Toplanma Alanları</button>
+              </div>
+            </div>
+
+
             <div style="overflow-y: scroll; height: 20vh;">
                 <button class="btn btn-primary w-100 my-2" onclick="afad()">AFAD</button>
                 <button class="btn btn-primary w-100 my-2" onclick="belediye()">BELEDİYE</button>
@@ -198,6 +227,97 @@
         };
         xhr.send();
       }
+
+        function mahalleOzelIslemler() {
+          var mahalleOzelDiv = document.getElementById("mahalleVeri")
+          mahalleOzelDiv.hidden = !mahalleOzelDiv.hidden 
+        }
+
+        function mahalleOzelOnay(){
+          var ilce = document.getElementById('ozelIlce').value
+          var geojsonURL = "./fakeDB/mahalle/mahalleDuzen.geojson";
+          var xhr = new XMLHttpRequest();
+          ilceOzel = []
+          xhr.open("GET", geojsonURL, true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+              var geojson = JSON.parse(xhr.responseText);
+              for (var i = 0; i < geojson.features.length; i++) {
+                var feature = geojson.features[i];
+                if (ilce == feature.properties.ILCE) {
+                  if (!ilceOzel.includes(feature.properties.AD))                  
+                  {
+                    ilceOzel.push(feature.properties.AD)
+                    var mahSelect = document.getElementById("mahalleOzelSelect")
+                    var mahOption = document.createElement("option");
+                    mahOption.text = feature.properties.AD
+                    mahOption.value = String(feature.properties.AD).toUpperCase()
+                    mahSelect.add(mahOption)
+                  }
+                }
+              }
+            }
+          };
+          xhr.send();
+        }
+
+        function mahalleyeGoreGoster() {
+          var mahSelect = document.getElementById("mahalleOzelSelect")
+          var ilce = document.getElementById('ozelIlce').value
+
+          var geojsonURL2 = "./fakeDB/mahalle/mahalleDuzen.geojson";
+          var xhr2 = new XMLHttpRequest();
+          xhr2.open("GET", geojsonURL2, true);
+          xhr2.onreadystatechange = function () {
+            if (xhr2.readyState === 4 && xhr2.status === 200) {
+              var geojson = JSON.parse(xhr2.responseText);
+              for (var i = 0; i < geojson.features.length; i++) {
+                var feature = geojson.features[i];
+              if (ilce == feature.properties.ILCE && mahSelect.value == feature.properties.AD) {
+                  var coordinates = feature.geometry.coordinates;
+                    var poly = L.polygon(coordinates[0], {
+                      fillColor: "#000000",
+                      color: "#000000",
+                      fillOpacity: 0,
+                    })
+                      .addTo(map)
+                      .bindPopup(String(feature.properties.ILCE + ' / ' + feature.properties.AD + ' Mahallesi'))
+                      map.fitBounds(poly.getBounds());
+                    }
+              }
+            }
+          };
+          xhr2.send();
+          
+          
+          var geojsonURL = "./fakeDB/toplanma_alani.geojson";
+          var xhr = new XMLHttpRequest();
+          xhr.open("GET", geojsonURL, true);
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+              var geojson = JSON.parse(xhr.responseText);
+              // GeoJSON verilerini işleme
+              for (var i = 0; i < geojson.features.length; i++) {
+                var feature = geojson.features[i];
+                if (feature.properties.Field6 == mahSelect.value) {
+                  var coordinatesX = feature.properties.Field9;
+                  var coordinatesY = feature.properties.Field8;
+                  var myIcon = L.icon({
+                                        iconUrl: './ico/toplanma_alani.ico',
+                                        iconSize: [32, 32],
+                                    });
+                  var marker = L.marker([coordinatesX, coordinatesY], {
+                                                        icon: myIcon
+                                                      })
+                                                        .addTo(map)
+                                                        .bindPopup(String(feature.properties.Field2))
+                }
+                }
+            }
+          };
+          
+          xhr.send();
+        }
 
         // mahalle işlemleri
         function mahalleIslemleriGoster() {
