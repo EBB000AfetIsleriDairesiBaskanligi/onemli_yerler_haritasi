@@ -579,6 +579,7 @@
                                                                     .addTo(map)
                                                                     .bindPopup(String(feature.properties.Field2 +" <br> Koordinatlar(EPSG 4326): " +coordinatesX + ", " + coordinatesY ))
                             }
+                            document.getElementById('test').style.zIndex = 0
                     
                         }
                         else if (yerleske == 'ilce'){
@@ -609,7 +610,6 @@
                 }
                 };
                 xhr.send();
-                document.getElementById('test').style.zIndex = 0
             }
 
             function mahalleGetir() {
