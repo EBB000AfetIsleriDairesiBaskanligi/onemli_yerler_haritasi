@@ -23,112 +23,120 @@
     <div class="container-fluid">
       <!-- BAŞLIK -->
       <div class="row">
-        <div class="text-center px-3 py-3" style="height: 20vh">
+        <div class="text-center px-3 py-3" style="height: 20vh; background-color: #018B90;">
             <img src="./img/ebb_logo.png" alt="" width="7.5%" style="position: absolute; left: 5%;"/>
-            <div class="d-flex justify-content-center" style="font-weight: bold;">
+            <div class="d-flex justify-content-center" style="font-weight: bold; font-size: larger; color: #fff;">
             T.C.<br>ESKİŞEHİR BÜYÜKŞEHİR BELEDİYESİ <br> Afet İşleri Dairesi Başkanlığı <br> Önemli Yerler Haritası
           </div>
         </div>
       </div>
 
+      <!-- NAVBAR -->
+      <div id="test" style="width: 90%; height: 50vh; position: absolute; top: 20vh; left: 5%; z-index: 2;">
+        <div id="controlButonlari" class="d-flex justify-content-around">
+            <button class="btn btn-danger" onclick="sinirIslemleri()">Sınır İşlemleri</button>
+            <button class="btn btn-danger" onclick="veriGosterButton()">Veri İşlemleri</button>
+        </div>
+        <div id="islemAlani" class="my-2 ">
+            <!-- Sinir İşlemleri -->
+            <div id="SinirIslemleri" hidden>
+                <!-- İl Sınırı -->
+                <div class="my-2">
+                    <button class="btn btn-primary w-25" onclick="ilSiniriMenusuGoster()">İl Sınırı İşlemleri</button>
+                    <div id="ilSinirRenk" hidden>
+                        İl Sınır Rengi Seçiniz
+                        <input type="color" class="form-control w-50" id="ilSiniriRengi">
+                        <button class="btn btn-info" onclick="ilSiniriniGoster()">İl Sınırı Göster</button>
+                    </div>
+                </div>
+                <!-- İlçe Sınırı -->
+                <div >
+                    <button class="btn btn-secondary w-25" onclick="ilceSiniriMenusuGoster()">İlçe Sınırı İşlemleri</button>
+                    <div id="ilceSinirRenk" hidden>
+                        İlçe Sınır Rengi Seçiniz
+                        <input type="color" class="form-control w-50" id="ilceSiniriRengi">
+                        <button class="btn btn-info" onclick="ilceSiniriniGoster()">İlçe Sınırı Göster</button>
+                    </div>
+                </div>
+                <!--  Mahalle Sınırı -->
+                <div class="my-2">
+                    <button class="btn btn-warning w-25" onclick="mahalleSiniriMenusuGoster()">Mahalle Sınırı İşlemleri</button>
+                    <div id="mahalleSinirRenk" hidden>
+                        Mahalle Sınır Rengi Seçiniz
+                        <input type="color" class="form-control w-50" id="mahalleSiniriRengi">
+                        <button class="btn btn-info" onclick="mahalleSiniriniGoster()">İlçe Sınırı Göster</button>
+                    </div>
+                </div>
+                
+            </div>
+            <!-- Veri İşlemleri -->
+            <div id="VeriIslemleri" class="w-25">
+                    <div id="gosterilecekVeriTipiSecimDiv" hidden>
+                        Gösterilecek Veriyi Seçiniz
+                        <select name="" id="veriTipiSeciniz" class="form-control">
+                            <option value="bos">Gösterilecek Veriyi Seçiniz</option>
+                            <option value="AFAD">AFAD</option>
+                            <option value="BelediyeYerleşkeleri">Belediye Yerleşkeleri</option>
+                            <option value="EGM">Polis Karakolları</option>
+                            <option value="Hastaneler">Hastaneler</option>
+                            <option value="İtfaiyeYerleşkeleri">İtfaiye Yerleşkeleri</option>
+                            <option value="ToplanmaAlanlari">Toplanma Alanları</option>
+                            <option value="Heliport">Heliportlar</option>
+                        </select>
+                        <button class="my-2 btn btn-primary" onclick="veriSecimiOnayla()">Veri Seçimini Onayla</button>
+                    </div>
+                    <div id="gosterilecekAlanSecimDiv" hidden>
+                        Gösterilecek Alanı Seçiniz
+                        <select name="" id="gosterilecekAlan" class="form-control">
+                            <option value="bos">Gösterilecek Alanı Seçiniz</option>
+                            <option value="il">İl Bazında</option>
+                            <option value="ilce">İlçe Bazında</option>
+                            <option value="mahalle">Mahalle Bazında</option>
+                        </select>
+                        <button class="my-2 btn btn-secondary" onclick="veriGosterimKoprusu()">Alanı Onayla</button>
+                    </div>
+                    <div id="ilceVeri_islemleri" hidden>
+                        İlçe Seçiniz
+                        <select name="" id="gosterilecekIlce" class="form-control">
+                            <option value="bos">İlçe Seçiniz</option>
+                            <option value="ODUNPAZARI">Odunpazarı</option>
+                            <option value="TEPEBAŞI">Tepebaşı</option>
+                            <option value="ALPU">Alpu</option>
+                            <option value="BEYLİKOVA">Beylikova</option>
+                            <option value="ÇİFTELER">Çifteler</option>
+                            <option value="GÜNYÜZÜ">Günyüzü</option>
+                            <option value="HAN">Han</option>
+                            <option value="İNÖNÜ">İnönü</option>
+                            <option value="MAHMUDİYE">Mahmudiye</option>
+                            <option value="MİHALGAZİ">Mihalgazi</option>
+                            <option value="MİHALIÇÇIK">Mihalıççık</option>
+                            <option value="SARICAKAYA">Sarıcakaya</option>
+                            <option value="SEYİTGAZİ">Seyitgazi</option>
+                            <option value="SİVRİHİSAR">Sivrihisar</option>
+                        </select>
+                        <button class="my-2 btn btn-danger" onclick="toplanmaAlan('ilce')">İlçe Onayla</button>
+                    </div>
+                    <div id="mahalleVeri_islemleri" hidden>
+                        Mahalle Seçiniz
+                        <select name="" id="gosterilecekMahalle" class="form-control">
+                            <option value="bos">Mahalle Seçiniz</option>
+                        </select>
+                        <button class="my-2 btn btn-danger" onclick="mahalleyeGoreGoster()">Seçimleri Onayla ve Veriyi Göster</button>
+                    </div>
+            </div>
+        </div>
+
+      </div>
+
       <!-- PENCERE -->
       <div class="row">
-        <!-- SOL PANEL -->
-        <div style="height: 75vh; width: 20%; margin-top: 5vh; margin-left: 2%; z-index: 2;">
-          <button class="btn btn-secondary w-100 my-2" onclick="ilIslemleri()">İl Sınırı İşlemleri</button>
-          <div id="sinir" hidden>
-            Sınır Rengi: 
-            <input type="color" name="" id="ilSinirRenk">
-            <button class="btn btn-primary w-100 my-2" onclick="ilSiniriGoster()">
-              İl Sınırı Göster
-            </button>
-          </div>
-
-          
-          <!-- Olay Seçimi -->
-          <div id="haritaIslemleri">
-
-            <button class="btn btn-primary w-100 my-2" onclick="ilceleriGoster()">İlçeleri Göster</button>
-            <button class="btn btn-primary w-100 my-2" onclick="mahalleIslemleriGoster()">Mahalle İşlemleri</button>
-
-            <div id="mahalleSecimAlani" hidden>
-              <!-- İlçe Bazında Seç -->
-              <select name="ilce" id="ilceler" class="form-control my-2">
-                <option value="bos">İncelenecek İlçeyi Seçiniz</option>
-                <option value="ODUNPAZARI">Odunpazarı</option>
-                <option value="TEPEBAŞI">Tepebaşı</option>
-                <option value="ALPU">Alpu</option>
-                <option value="BEYLİKOVA">Beylikova</option>
-                <option value="ÇİFTELER">Çifteler</option>
-                <option value="GÜNYÜZÜ">Günyüzü</option>
-                <option value="HAN">Han</option>
-                <option value="İNÖNÜ">İnönü</option>
-                <option value="MAHMUDİYE">Mahmudiye</option>
-                <option value="MİHALGAZİ">Mihalgazi</option>
-                <option value="MİHALIÇÇIK">Mihalıççık</option>
-                <option value="SARICAKAYA">Sarıcakaya</option>
-                <option value="SEYİTGAZİ">Seyitgazi</option>
-                <option value="SİVRİHİSAR">Sivrihisar</option>
-              </select>
-              <button class="btn btn-primary w-100 my-2" onclick="mahalleGoster()">Mahalleleri Getir</button>
-            </div>
-            
-            <div>
-              <button class="btn btn-primary" onclick="mahalleOzelIslemler()">Mahalle Verisi</button>
-              <div id="mahalleVeri" hidden>
-                <select name="" id="ozelIlce">
-                  <option value="bos">İncelenecek İlçeyi Seçiniz</option>
-                <option value="ODUNPAZARI">Odunpazarı</option>
-                <option value="TEPEBAŞI">Tepebaşı</option>
-                <option value="ALPU">Alpu</option>
-                <option value="BEYLİKOVA">Beylikova</option>
-                <option value="ÇİFTELER">Çifteler</option>
-                <option value="GÜNYÜZÜ">Günyüzü</option>
-                <option value="HAN">Han</option>
-                <option value="İNÖNÜ">İnönü</option>
-                <option value="MAHMUDİYE">Mahmudiye</option>
-                <option value="MİHALGAZİ">Mihalgazi</option>
-                <option value="MİHALIÇÇIK">Mihalıççık</option>
-                <option value="SARICAKAYA">Sarıcakaya</option>
-                <option value="SEYİTGAZİ">Seyitgazi</option>
-                <option value="SİVRİHİSAR">Sivrihisar</option>
-                </select>
-                <button class="btn btn-secondary" onclick="mahalleOzelOnay()">Onayla</button>
-                <select name="" id="mahalleOzelSelect">
-                  <option value="">İncelenecek Mahalle Seçiniz</option>
-                </select>
-                <button class="btn btn-danger" onclick="mahalleyeGoreGoster()">Toplanma Alanları</button>
-              </div>
-            </div>
-
-
-            <div style="overflow-y: scroll; height: 20vh;">
-                <button class="btn btn-primary w-100 my-2" onclick="afad()">AFAD</button>
-                <button class="btn btn-primary w-100 my-2" onclick="belediye()">BELEDİYE</button>
-                <button class="btn btn-primary w-100 my-2" onclick="itfGrup()">İTFAİYE</button>
-                <button class="btn btn-primary w-100 my-2" onclick="heliport()">HELİPORTLAR</button>
-                <button class="btn btn-primary w-100 my-2" onclick="polis()">KARAKOLLAR</button>
-                <button class="btn btn-primary w-100 my-2" onclick="hastane()">HASTANELER</button>
-                <button class="btn btn-primary w-100 my-2" onclick="toplanmaAlani()">TOPLANMA ALANLARI</button>
-            </div>
-            
-          </div>
-          
-          <button class="btn btn-primary w-100 my-2" onclick="haritaTemizle()">
-            Haritayı Temizle
-          </button>
-
-
-
-        </div>
-        <!-- HARİTA Çalışma Alanı-->
-        <div style="position: absolute; z-index: 0;">
-          <!-- Harita Kutusu -->
-          <div style="height: 75vh">
-            <div id="map" style="height: 75vh; width: 100%"></div>
-          </div>
-        </div>
+        <div id="map" style="width: 100%; height: 80vh; z-index: 1;"></div>
       </div>
+    </div>
+
+    <!--  Haritayı Temizle -->
+    <div style="position: absolute; left: 2%; top: 20vh; z-index: 3;">
+        <button class="btn btn-danger w-100" onclick="haritaTemizle()">Haritayı Yenile</button>
     </div>
 
     <!-- Bootstrap -->
@@ -138,22 +146,15 @@
       crossorigin="anonymous"
     ></script>
 
-
-
-
-
-
-
-
     <!-- Haritayı Ekleme ve Harita Ayarları -->
     <script>
       var osmMap = L.tileLayer(
                                   "https://tile.openstreetmap.org/{z}/{x}/{y}.png"
                                 );
         var googleMap = L.tileLayer(
-                                    "http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}",
-                                                                                        {
-                                                                                          subdomains: ["mt0", "mt1", "mt2", "mt3"],
+            'http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+        maxZoom: 20,
+        subdomains:['mt0','mt1','mt2','mt3']
                                                                                         }
                                   );
         var map = L.map("map", {
@@ -170,18 +171,20 @@
         var layerControl = L.control.layers(baseMaps).addTo(map);
     </script>
 
-
-
-    <!-- Sınır İşlemleri -->
+    <!-- Sınırla İlgili Fonksiyonlar -->
     <script>
-        function ilIslemleri() {
-        var divSinir = document.getElementById('sinir')
-        divSinir.hidden = !divSinir.hidden
-      }
-        // İl Sınırı
-        function ilSiniriGoster() {
-            var hexSinir = document.getElementById('ilSinirRenk')
-            var hexCode = hexSinir.value
+        function sinirIslemleri() {
+            var sinirIslemleriDiv = document.getElementById("SinirIslemleri")
+            sinirIslemleriDiv.hidden = !sinirIslemleriDiv.hidden
+        }
+
+        function ilSiniriMenusuGoster() {
+            var div = document.getElementById("ilSinirRenk")
+            div.hidden = !div.hidden
+        }
+
+        function ilSiniriniGoster() {
+            var renk = document.getElementById("ilSiniriRengi").value
 
             var geojsonURL = "./fakeDB/eskisehir/il.geojson";
             var xhr = new XMLHttpRequest();
@@ -195,368 +198,535 @@
                 var coordinates = feature.geometry.coordinates;
                 L.polygon(feature.geometry.coordinates[0], {
                                                                 fillOpacity: 0, // İçi doldurmayacak şekilde ayarlayın
-                                                                color: hexCode,
+                                                                color: renk,
                                                             }).addTo(map);
                 }
             }
             };
             xhr.send();
         }
+    
+        function ilceSiniriMenusuGoster() {
+            var div = document.getElementById("ilceSinirRenk")
+            div.hidden = !div.hidden
+        }
 
-        // İlçe Sınırları
-        function ilceleriGoster() {
-        var geojsonURL = "./fakeDB/ilceler/ilceDuzen.geojson";
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", geojsonURL, true);
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            var geojson = JSON.parse(xhr.responseText);
-            // GeoJSON verilerini işleme
-            for (var i = 0; i < geojson.features.length; i++) {
+        function ilceSiniriniGoster() {
+            var renk = document.getElementById("ilceSiniriRengi").value
+
+            var geojsonURL = "./fakeDB/ilceler/ilceDuzen.geojson";
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", geojsonURL, true);
+            xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                var geojson = JSON.parse(xhr.responseText);
+                for (var i = 0; i < geojson.features.length; i++) 
+                {
                 var feature = geojson.features[i];
                 var coordinates = feature.geometry.coordinates;
-                L.polygon(coordinates[0], {
-                  fillColor: "#ff0000",
-                  color: "#ff0000",
-                  fillOpacity: 0,
-                })
-                  .addTo(map)
-                  .bindPopup(String(feature.properties.AD))
+                L.polygon(feature.geometry.coordinates[0], {
+                                                                fillOpacity: 0, // İçi doldurmayacak şekilde ayarlayın
+                                                                color: renk,
+                                                            }).addTo(map)
+                                                                .bindPopup(String(feature.properties.AD))
+                }
             }
-          }
-        };
-        xhr.send();
-      }
-
-        function mahalleOzelIslemler() {
-          var mahalleOzelDiv = document.getElementById("mahalleVeri")
-          mahalleOzelDiv.hidden = !mahalleOzelDiv.hidden 
+            };
+            xhr.send();
+        }
+        
+        function mahalleSiniriMenusuGoster() {
+            var div = document.getElementById("mahalleSinirRenk")
+            div.hidden = !div.hidden
         }
 
-        function mahalleOzelOnay(){
-          var ilce = document.getElementById('ozelIlce').value
-          var geojsonURL = "./fakeDB/mahalle/mahalleDuzen.geojson";
-          var xhr = new XMLHttpRequest();
-          ilceOzel = []
-          xhr.open("GET", geojsonURL, true);
-          xhr.onreadystatechange = function () {
+        function mahalleSiniriniGoster() {
+            var renk = document.getElementById("mahalleSiniriRengi").value
+
+            var geojsonURL = "./fakeDB/mahalle/mahalleDuzen.geojson";
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", geojsonURL, true);
+            xhr.onreadystatechange = function () {
             if (xhr.readyState === 4 && xhr.status === 200) {
-              var geojson = JSON.parse(xhr.responseText);
-              for (var i = 0; i < geojson.features.length; i++) {
+                var geojson = JSON.parse(xhr.responseText);
+                for (var i = 0; i < geojson.features.length; i++) 
+                {
                 var feature = geojson.features[i];
-                if (ilce == feature.properties.ILCE) {
-                  if (!ilceOzel.includes(feature.properties.AD))                  
-                  {
-                    ilceOzel.push(feature.properties.AD)
-                    var mahSelect = document.getElementById("mahalleOzelSelect")
-                    var mahOption = document.createElement("option");
-                    mahOption.text = feature.properties.AD
-                    mahOption.value = String(feature.properties.AD).toUpperCase()
-                    mahSelect.add(mahOption)
-                  }
-                }
-              }
-            }
-          };
-          xhr.send();
-        }
-
-        function mahalleyeGoreGoster() {
-          var mahSelect = document.getElementById("mahalleOzelSelect")
-          var ilce = document.getElementById('ozelIlce').value
-
-          var geojsonURL2 = "./fakeDB/mahalle/mahalleDuzen.geojson";
-          var xhr2 = new XMLHttpRequest();
-          xhr2.open("GET", geojsonURL2, true);
-          xhr2.onreadystatechange = function () {
-            if (xhr2.readyState === 4 && xhr2.status === 200) {
-              var geojson = JSON.parse(xhr2.responseText);
-              for (var i = 0; i < geojson.features.length; i++) {
-                var feature = geojson.features[i];
-              if (ilce == feature.properties.ILCE && mahSelect.value == feature.properties.AD) {
-                  var coordinates = feature.geometry.coordinates;
-                    var poly = L.polygon(coordinates[0], {
-                      fillColor: "#000000",
-                      color: "#000000",
-                      fillOpacity: 0,
-                    })
-                      .addTo(map)
-                      .bindPopup(String(feature.properties.ILCE + ' / ' + feature.properties.AD + ' Mahallesi'))
-                      map.fitBounds(poly.getBounds());
-                    }
-              }
-            }
-          };
-          xhr2.send();
-          
-          
-          var geojsonURL = "./fakeDB/toplanma_alani.geojson";
-          var xhr = new XMLHttpRequest();
-          xhr.open("GET", geojsonURL, true);
-          xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-              var geojson = JSON.parse(xhr.responseText);
-              // GeoJSON verilerini işleme
-              for (var i = 0; i < geojson.features.length; i++) {
-                var feature = geojson.features[i];
-                if (feature.properties.Field6 == mahSelect.value) {
-                  var coordinatesX = feature.properties.Field9;
-                  var coordinatesY = feature.properties.Field8;
-                  var myIcon = L.icon({
-                                        iconUrl: './ico/toplanma_alani.ico',
-                                        iconSize: [32, 32],
-                                    });
-                  var marker = L.marker([coordinatesX, coordinatesY], {
-                                                        icon: myIcon
-                                                      })
-                                                        .addTo(map)
-                                                        .bindPopup(String(feature.properties.Field2))
-                }
-                }
-            }
-          };
-          
-          xhr.send();
-        }
-
-        // mahalle işlemleri
-        function mahalleIslemleriGoster() {
-            var divSinir = document.getElementById('mahalleSecimAlani')
-            divSinir.hidden = !divSinir.hidden
-        } 
-
-        function mahalleGoster() {
-        var ilce = document.getElementById('ilceler').value
-
-        var geojsonURL = "./fakeDB/mahalle/mahalleDuzen.geojson";
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", geojsonURL, true);
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            var geojson = JSON.parse(xhr.responseText);
-            for (var i = 0; i < geojson.features.length; i++) {
-              var feature = geojson.features[i];
-              if (ilce == feature.properties.ILCE) {
                 var coordinates = feature.geometry.coordinates;
-                  L.polygon(coordinates[0], {
-                    fillColor: "#000000",
-                    color: "#000000",
-                    fillOpacity: 0,
-                  })
-                    .addTo(map)
-                    .bindPopup(String(feature.properties.ILCE + ' / ' + feature.properties.AD + ' Mahallesi'))
-              }
+                L.polygon(feature.geometry.coordinates[0], {
+                                                                fillOpacity: 0, // İçi doldurmayacak şekilde ayarlayın
+                                                                color: renk,
+                                                            }).addTo(map)
+                                                                .bindPopup(String(feature.properties.AD))
+                }
             }
-          }
-        };
-        xhr.send();
-      }
-
-        // Haritayı Temizle
+            };
+            xhr.send();
+        }
+    
         function haritaTemizle() {
             location.reload()
         }
     </script>
 
-
-    <!-- Fonksiyonlar -->
+    <!-- Veri Gösterim Fonksiyonları -->
     <script>
-      // İl Sınırı Göster
-      function itfGrup(){
-        var geojsonURL = "./fakeDB/itfaiye.geojson";
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", geojsonURL, true);
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            var geojson = JSON.parse(xhr.responseText);
-            // GeoJSON verilerini işleme
-            for (var i = 0; i < geojson.features.length; i++) {
-              var feature = geojson.features[i];
-              var coordinatesX = feature.properties.X;
-              var coordinatesY = feature.properties.y
-              var myIcon = L.icon({
-                                    iconUrl: './ico/firetruck.ico',
-                                    iconSize: [32, 32],
-                                });
-              var marker = L.marker([coordinatesX, coordinatesY], {
-                                                    icon: myIcon
-                                                  })
-                                                    .addTo(map)
-                                                    .bindPopup(String(feature.properties.AD))
+        function veriGosterButton() {
+            var gosterilecekVeriTipi = document.getElementById("gosterilecekVeriTipiSecimDiv")
+            gosterilecekVeriTipi.hidden = !gosterilecekVeriTipi.hidden
+        }
+
+        function veriSecimiOnayla() {
+            var gosterilecekAlanSecimDiv = document.getElementById("gosterilecekAlanSecimDiv")
+            gosterilecekAlanSecimDiv.hidden = !gosterilecekAlanSecimDiv.hidden
+        }
+
+        function veriGosterimKoprusu() {
+            var gosterilecekAlan = document.getElementById("gosterilecekAlan").value
+            switch (gosterilecekAlan){
+                case "il":
+                    ilGeneliGoster()
+                    break;
+                case "ilce":
+                    ilcedeGoster()
+                    break;
+                case "mahalle":
+                    mahalledeGoster()
+                    break
             }
-          }
-        };
-        xhr.send();
-      }
-      
+        }
 
-      function afad() {
-        var geojsonURL = "./fakeDB/afad.geojson";
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", geojsonURL, true);
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            var geojson = JSON.parse(xhr.responseText);
-            // GeoJSON verilerini işleme
-            for (var i = 0; i < geojson.features.length; i++) {
-              var feature = geojson.features[i];
-              var coordinatesX = feature.properties.Field3;
-              var coordinatesY = feature.properties.Field4
-              var myIcon = L.icon({
-                                    iconUrl: './ico/afad_logo.ico',
-                                    iconSize: [32, 32],
-                                });
-              var marker = L.marker([coordinatesX, coordinatesY], {
-                                                    icon: myIcon
-                                                  })
-                                                    .addTo(map)
-                                                    .bindPopup(String(feature.properties.Field2))
+        function ilGeneliGoster(){
+                var gosterilecekVeriTuru = document.getElementById("veriTipiSeciniz").value
+                switch (gosterilecekVeriTuru) {
+                    case 'AFAD':
+                        afad();
+                        break;
+                    case 'BelediyeYerleşkeleri':
+                        belediyeYerleskeleri()
+                        break;
+                    case 'EGM':
+                        egm()
+                        break;
+                    case 'Hastaneler':
+                        hastaneler()
+                        break;
+                    case "İtfaiyeYerleşkeleri":
+                        itfaiye()
+                        break;    
+                    case "ToplanmaAlanlari":
+                        toplanmaAlan()
+                        break;
+                    case "Heliport":
+                        heliport()
+                        break;
+                }
+
             }
-          }
-        };
-        xhr.send();
-      }
 
-      function belediye() {
-        var geojsonURL = "./fakeDB/belediye.geojson";
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", geojsonURL, true);
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            var geojson = JSON.parse(xhr.responseText);
-            // GeoJSON verilerini işleme
-            for (var i = 0; i < geojson.features.length; i++) {
-              var feature = geojson.features[i];
-              var coordinatesX = feature.properties.Y_Koord;
-              var coordinatesY = feature.properties.X_Koord
-              var myIcon = L.icon({
-                                    iconUrl: './ico/ebb_logo.ico',
-                                    iconSize: [32, 32],
-                                });
-              var marker = L.marker([coordinatesX, coordinatesY], {
-                                                    icon: myIcon
-                                                  })
-                                                    .addTo(map)
-                                                    .bindPopup(String(feature.properties.Birim_Adi + ' / ' + feature.properties.Yerleske_A))
+            function ilcedeGoster(){
+                var gosterilecekVeriKontrolu = document.getElementById('veriTipiSeciniz').value
+                switch (gosterilecekVeriKontrolu) {
+                    case 'AFAD':
+                        afad('ilce')
+                        break;
+                    case 'BelediyeYerleşkeleri':
+                        belediyeYerleskeleri('ilce')
+                        break;
+                    case 'EGM':
+                        egm('ilce')
+                        break;
+                    case 'Hastaneler':
+                        hastaneler('ilce')
+                        break;
+                    case "İtfaiyeYerleşkeleri":
+                        itfaiye('ilce')
+                        break;    
+                    case "ToplanmaAlanlari":
+                        document.getElementById("ilceVeri_islemleri").hidden = !document.getElementById("ilceVeri_islemleri").hidden
+                        break;
+                    case "Heliport":
+                        heliport('ilce')
+                        break;
+                }
             }
-          }
-        };
-        xhr.send();
-      }
 
-      function heliport() {
-        var geojsonURL = "./fakeDB/heliports.geojson";
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", geojsonURL, true);
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            var geojson = JSON.parse(xhr.responseText);
-            // GeoJSON verilerini işleme
-            for (var i = 0; i < geojson.features.length; i++) {
-              var feature = geojson.features[i];
-              var coordinatesX = feature.properties.Field2;
-              var coordinatesY = feature.properties.Field3
-              var myIcon = L.icon({
-                                    iconUrl: './ico/heliport.ico',
-                                    iconSize: [32, 32],
-                                });
-              var marker = L.marker([coordinatesX, coordinatesY], {
-                                                    icon: myIcon
-                                                  })
-                                                    .addTo(map)
-                                                    .bindPopup(String(feature.properties.Field1))
+
+            function mahalledeGoster(){
+                var gosterilecekVeriKontrolu = document.getElementById('veriTipiSeciniz').value
+                switch (gosterilecekVeriKontrolu) {
+                    case 'AFAD':
+                        afad('ilce')
+                        break;
+                    case 'BelediyeYerleşkeleri':
+                        belediyeYerleskeleri('ilce')
+                        break;
+                    case 'EGM':
+                        egm('ilce')
+                        break;
+                    case 'Hastaneler':
+                        hastaneler('ilce')
+                        break;
+                    case "İtfaiyeYerleşkeleri":
+                        itfaiye('ilce')
+                        break;    
+                    case "ToplanmaAlanlari":
+                        document.getElementById("ilceVeri_islemleri").hidden = !document.getElementById("ilceVeri_islemleri").hidden
+                        break;
+                    case "Heliport":
+                        heliport('ilce')
+                        break;
+                }
             }
-          }
-        };
-        xhr.send();
-      }
 
-      function polis() {
-        var geojsonURL = "./fakeDB/police.geojson";
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", geojsonURL, true);
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            var geojson = JSON.parse(xhr.responseText);
-            // GeoJSON verilerini işleme
-            for (var i = 0; i < geojson.features.length; i++) {
-              var feature = geojson.features[i];
-              var coordinatesX = feature.properties.Field3;
-              var coordinatesY = feature.properties.Field4
-              var myIcon = L.icon({
-                                    iconUrl: './ico/EGM.ico',
-                                    iconSize: [32, 32],
-                                });
-              var marker = L.marker([coordinatesX, coordinatesY], {
-                                                    icon: myIcon
-                                                  })
-                                                    .addTo(map)
-                                                    .bindPopup(String(feature.properties.Field2))
+            function afad(yerleske = 'bos') {
+                var geojsonURL = "./fakeDB/afad.geojson";
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", geojsonURL, true);
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var geojson = JSON.parse(xhr.responseText);
+                    // GeoJSON verilerini işleme
+                    for (var i = 0; i < geojson.features.length; i++) {
+                    var feature = geojson.features[i];
+                    if (yerleske == 'bos') {
+                        var coordinatesX = feature.properties.Field3;
+                        var coordinatesY = feature.properties.Field4
+                        var myIcon = L.icon({
+                                                iconUrl: './ico/afad_logo.ico',
+                                                iconSize: [32, 32],
+                                            });
+                        var marker = L.marker([coordinatesX, coordinatesY], {
+                                                                icon: myIcon
+                                                            })
+                                                                .addTo(map)
+                                                                .bindPopup(String(feature.properties.Field2 + " <br> Koordinatlar(EPSG 4326): " +coordinatesX + ", " + coordinatesY ))
+                        }
+                    else if (yerleske == 'ilce'){
+                        alert('İl Afet ve Acil Durum Müdürlüğü için sadece ~İl Bazında Gösterim~ yapılabilir!!!')
+                    }
+                    }
+                    
+                }
+                };
+                xhr.send();
             }
-          }
-        };
-        xhr.send();
-      }
 
-      function hastane() {
-        var geojsonURL = "./fakeDB/hospital.geojson";
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", geojsonURL, true);
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            var geojson = JSON.parse(xhr.responseText);
-            // GeoJSON verilerini işleme
-            for (var i = 0; i < geojson.features.length; i++) {
-              var feature = geojson.features[i];
-              var coordinatesX = feature.properties.Field3;
-              var coordinatesY = feature.properties.Field4
-              var myIcon = L.icon({
-                                    iconUrl: './ico/saglik_logo.ico',
-                                    iconSize: [32, 32],
-                                });
-              var marker = L.marker([coordinatesX, coordinatesY], {
-                                                    icon: myIcon
-                                                  })
-                                                    .addTo(map)
-                                                    .bindPopup(String(feature.properties.Field2))
+            function belediyeYerleskeleri(yerleske = 'bos'){
+                var geojsonURL = "./fakeDB/belediye.geojson";
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", geojsonURL, true);
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var geojson = JSON.parse(xhr.responseText);
+                    // GeoJSON verilerini işleme
+                    if (yerleske == 'bos') {
+                    for (var i = 0; i < geojson.features.length; i++) {
+                    var feature = geojson.features[i];
+                        var coordinatesX = feature.properties.Y_Koord;
+                        var coordinatesY = feature.properties.X_Koord
+                        var myIcon = L.icon({
+                                                iconUrl: './ico/ebb_logo.ico',
+                                                iconSize: [32, 32],
+                                            });
+                        var marker = L.marker([coordinatesX, coordinatesY], {
+                                                                icon: myIcon
+                                                            })
+                                                                .addTo(map)
+                                                                .bindPopup(String(feature.properties.Birim_Adi + "<br>" + feature.properties.Yerleske_A +" <br> Koordinatlar(EPSG 4326): " +coordinatesX + ", " + coordinatesY ))
+                    }
+                }
+                    else if (yerleske == 'ilce'){
+                        alert('Belediye Yerleşkeleri için sadece ~İl Bazında Gösterim~ yapılabilir!!!')
+                    }
+                    
+                }
+                };
+                xhr.send();
             }
-          }
-        };
-        xhr.send();
-      }
 
-      function toplanmaAlani() {
-        var geojsonURL = "./fakeDB/toplanma_alani.geojson";
-        var xhr = new XMLHttpRequest();
-        xhr.open("GET", geojsonURL, true);
-        xhr.onreadystatechange = function () {
-          if (xhr.readyState === 4 && xhr.status === 200) {
-            var geojson = JSON.parse(xhr.responseText);
-            // GeoJSON verilerini işleme
-            for (var i = 0; i < geojson.features.length; i++) {
-              var feature = geojson.features[i];
-              var coordinatesX = feature.properties.Field9;
-              var coordinatesY = feature.properties.Field8;
-              var myIcon = L.icon({
-                                    iconUrl: './ico/toplanma_alani.ico',
-                                    iconSize: [32, 32],
-                                });
-              var marker = L.marker([coordinatesX, coordinatesY], {
-                                                    icon: myIcon
-                                                  })
-                                                    .addTo(map)
-                                                    .bindPopup(String(feature.properties.Field2))
+            function egm(yerleske = 'bos') {
+                var geojsonURL = "./fakeDB/police.geojson";
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", geojsonURL, true);
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var geojson = JSON.parse(xhr.responseText);
+                    // GeoJSON verilerini işleme
+                    if (yerleske == 'bos') {
+                    for (var i = 0; i < geojson.features.length; i++) {
+                    var feature = geojson.features[i];
+                    
+                        var coordinatesX = feature.properties.Field3;
+                        var coordinatesY = feature.properties.Field4
+                        var myIcon = L.icon({
+                                                iconUrl: './ico/EGM.ico',
+                                                iconSize: [32, 32],
+                                            });
+                        var marker = L.marker([coordinatesX, coordinatesY], {
+                                                                icon: myIcon
+                                                            })
+                                                                .addTo(map)
+                                                                .bindPopup(String(feature.properties.Field2 +" <br> Koordinatlar(EPSG 4326): " +coordinatesX + ", " + coordinatesY ))
+                        }
+                    }
+                    else if (yerleske == 'ilce'){
+                        alert('Polis Karakolları için sadece ~İl Bazında Gösterim~ yapılabilir!!!')
+                    }
+                    
+                }
+                };
+                xhr.send();
             }
-          }
-        };
-        xhr.send();
-      }
 
+            function hastaneler(yerleske = 'bos') {
+                var geojsonURL = "./fakeDB/hospital.geojson";
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", geojsonURL, true);
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var geojson = JSON.parse(xhr.responseText);
+                    // GeoJSON verilerini işleme
+                    if (yerleske == 'bos') {
+                    for (var i = 0; i < geojson.features.length; i++) {
+                    var feature = geojson.features[i];
+                        var coordinatesX = feature.properties.Field3;
+                        var coordinatesY = feature.properties.Field4
+                        var myIcon = L.icon({
+                                                iconUrl: './ico/saglik_logo.ico',
+                                                iconSize: [32, 32],
+                                            });
+                        var marker = L.marker([coordinatesX, coordinatesY], {
+                                                                icon: myIcon
+                                                            })
+                                                                .addTo(map)
+                                                                .bindPopup(String(feature.properties.Field2 +" <br> Koordinatlar(EPSG 4326): " +coordinatesX + ", " + coordinatesY ))
+                        }
+                    
+                    }
+                    else if (yerleske == 'ilce'){
+                        alert('Hastaneler için sadece ~İl Bazında Gösterim~ yapılabilir!!!')
+                    }
+                    
+                }
+                };
+                xhr.send();
+            }
 
-  
+            function itfaiye(yerleske = 'bos') {
+                var geojsonURL = "./fakeDB/itfaiye.geojson";
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", geojsonURL, true);
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var geojson = JSON.parse(xhr.responseText);
+                    // GeoJSON verilerini işleme
+                    if (yerleske == 'bos') {
+                        for (var i = 0; i < geojson.features.length; i++) {
+                    var feature = geojson.features[i];
+                    
+                        var coordinatesX = feature.properties.X;
+                        var coordinatesY = feature.properties.y
+                        var myIcon = L.icon({
+                                                iconUrl: './ico/firetruck.ico',
+                                                iconSize: [32, 32],
+                                            });
+                        var marker = L.marker([coordinatesX, coordinatesY], {
+                                                                icon: myIcon
+                                                            })
+                                                                .addTo(map)
+                                                                .bindPopup(String(feature.properties.AD +" <br> Koordinatlar(EPSG 4326): " +coordinatesX + ", " + coordinatesY ))
+                        }
+                    
+                    }
+                    else if (yerleske == 'ilce'){
+                        alert('İtfaiye Yerleşkeleri için sadece ~İl Bazında Gösterim~ yapılabilir!!!')
+                    }
+                    
+                }
+                };
+                xhr.send();
+            }
 
-    
-      
+            function toplanmaAlan(yerleske  = 'bos') {
+                var gosterilecekAlan = document.getElementById("gosterilecekAlan").value 
+                var geojsonURL = "./fakeDB/toplanma_alani.geojson";
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", geojsonURL, true);
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var geojson = JSON.parse(xhr.responseText);
+                    // GeoJSON verilerini işleme
+                    if (gosterilecekAlan != "mahalle"){
+                        if (yerleske == 'bos') {
+                        for (var i = 0; i < geojson.features.length; i++) {
+                        var feature = geojson.features[i];
+                        
+                            var coordinatesX = feature.properties.Field9;
+                            var coordinatesY = feature.properties.Field8
+                            var myIcon = L.icon({
+                                                    iconUrl: './ico/toplanma_alani.ico',
+                                                    iconSize: [32, 32],
+                                                });
+                            var marker = L.marker([coordinatesX, coordinatesY], {
+                                                                    icon: myIcon
+                                                                })
+                                                                    .addTo(map)
+                                                                    .bindPopup(String(feature.properties.Field2 +" <br> Koordinatlar(EPSG 4326): " +coordinatesX + ", " + coordinatesY ))
+                            }
+                    
+                        }
+                        else if (yerleske == 'ilce'){
+                            var gosterilecekIlce = document.getElementById("gosterilecekIlce").value
+                            for (var i = 0; i < geojson.features.length; i++) {
+                                var feature = geojson.features[i];
+                                if (feature.properties.Field5 == gosterilecekIlce) {
+                                    var coordinatesX = feature.properties.Field9;
+                                    var coordinatesY = feature.properties.Field8
+                                    var myIcon = L.icon({
+                                                        iconUrl: './ico/toplanma_alani.ico',
+                                                        iconSize: [32, 32],
+                                                    });
+                                    var marker = L.marker([coordinatesX, coordinatesY], {
+                                                                        icon: myIcon
+                                                                    })
+                                                                        .addTo(map)
+                                                                        .bindPopup(String(feature.properties.Field2 +" <br> Koordinatlar(EPSG 4326): " +coordinatesX + ", " + coordinatesY ))
+                                }
+                                
+                                }
+                    
+                    }
+                    }
+                    else {
+                        mahalleGetir()
+                    }
+                }
+                };
+                xhr.send();
+            }
+
+            function mahalleGetir() {
+                var ilce = document.getElementById("gosterilecekIlce").value
+                var geojsonURL = "./fakeDB/mahalle/mahalleDuzen.geojson";
+                var xhr = new XMLHttpRequest();
+                ilceOzel = []
+                xhr.open("GET", geojsonURL, true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                    var geojson = JSON.parse(xhr.responseText);
+                    for (var i = 0; i < geojson.features.length; i++) {
+                        var feature = geojson.features[i];
+                        if (ilce == feature.properties.ILCE) {
+                        if (!ilceOzel.includes(feature.properties.AD))                  
+                        {
+                            ilceOzel.push(feature.properties.AD)
+                            var mahSelect = document.getElementById("gosterilecekMahalle")
+                            var mahOption = document.createElement("option");
+                            mahOption.text = feature.properties.AD
+                            mahOption.value = String(feature.properties.AD).toUpperCase()
+                            mahSelect.add(mahOption)
+                        }
+                        }
+                    }
+                    }
+                };
+                xhr.send();
+                document.getElementById("mahalleVeri_islemleri").hidden = !document.getElementById("mahalleVeri_islemleri").hidden
+            }
+       
+            function mahalleyeGoreGoster() {
+                var mahSelect = document.getElementById("gosterilecekMahalle")
+                var ilce = document.getElementById('gosterilecekIlce').value
+
+                var geojsonURL2 = "./fakeDB/mahalle/mahalleDuzen.geojson";
+                var xhr2 = new XMLHttpRequest();
+                xhr2.open("GET", geojsonURL2, true);
+                xhr2.onreadystatechange = function () {
+                    if (xhr2.readyState === 4 && xhr2.status === 200) {
+                    var geojson = JSON.parse(xhr2.responseText);
+                    for (var i = 0; i < geojson.features.length; i++) {
+                        var feature = geojson.features[i];
+                    if (ilce == feature.properties.ILCE && mahSelect.value == feature.properties.AD) {
+                        var coordinates = feature.geometry.coordinates;
+                            var poly = L.polygon(coordinates[0], {
+                            fillColor: "#000000",
+                            color: "#000000",
+                            fillOpacity: 0,
+                            })
+                            .addTo(map)
+                            .bindPopup(String(feature.properties.ILCE + ' / ' + feature.properties.AD + ' Mahallesi'))
+                            map.fitBounds(poly.getBounds());
+                            }
+                    }
+                    }
+                };
+                xhr2.send();
+                
+                
+                var geojsonURL = "./fakeDB/toplanma_alani.geojson";
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", geojsonURL, true);
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                    var geojson = JSON.parse(xhr.responseText);
+                    // GeoJSON verilerini işleme
+                    for (var i = 0; i < geojson.features.length; i++) {
+                        var feature = geojson.features[i];
+                        if (feature.properties.Field6 == mahSelect.value) {
+                        var coordinatesX = feature.properties.Field9;
+                        var coordinatesY = feature.properties.Field8;
+                        var myIcon = L.icon({
+                                                iconUrl: './ico/toplanma_alani.ico',
+                                                iconSize: [32, 32],
+                                            });
+                        var marker = L.marker([coordinatesX, coordinatesY], {
+                                                                icon: myIcon
+                                                            })
+                                                                .addTo(map)
+                                                                .bindPopup(String(feature.properties.Field2 + '<br>Koordinatlar: ' + coordinatesX +', ' + coordinatesY))
+                        }
+                        }
+                    }
+                };
+                xhr.send();
+                document.getElementById('test').style.zIndex = 0
+            }
+
+            function heliport(yerleske = "bos") {
+                var geojsonURL = "./fakeDB/heliports.geojson";
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", geojsonURL, true);
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var geojson = JSON.parse(xhr.responseText);
+                    // GeoJSON verilerini işleme
+                    for (var i = 0; i < geojson.features.length; i++) {
+                    var feature = geojson.features[i];
+                    if (yerleske == 'bos') {
+                        var coordinatesX = feature.properties.Field2;
+                        var coordinatesY = feature.properties.Field3
+                        var myIcon = L.icon({
+                                                iconUrl: './ico/heliport.ico',
+                                                iconSize: [32, 32],
+                                            });
+                        var marker = L.marker([coordinatesX, coordinatesY], {
+                                                                icon: myIcon
+                                                            })
+                                                                .addTo(map)
+                                                                .bindPopup(String(feature.properties.Field1 +" <br> Koordinatlar(EPSG 4326): " +coordinatesX + ", " + coordinatesY ))
+                        }
+                    else if (yerleske == 'ilce'){
+                        alert('Heliportlar için sadece ~İl Bazında Gösterim~ yapılabilir!!!')
+                    }
+                    }
+                    
+                }
+                };
+                xhr.send();
+            }
+
     </script>
+
   </body>
 </html>
