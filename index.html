@@ -84,6 +84,7 @@
                             <option value="Heliport">Heliportlar</option>
                             <option value="LojistikDestek">Lojistik Destek Birimleri</option>
                             <option value="TurkTelekomHaberlesmeYonetimBinasi">Türk Telekom Haberleşme Yönetim Binaları</option>
+                            <option value="tehlikeliDepo">Tehlikeli Madde Depoları</option>
                         </select>
                         <button class="my-2 btn btn-primary" onclick="veriSecimiOnayla()">Veri Seçimini Onayla</button>
                     </div>
@@ -328,6 +329,9 @@
                     case "TurkTelekomHaberlesmeYonetimBinasi":
                         turkTelekom()
                         break
+                    case "tehlikeliDepo":
+                        tehlikeliMaddeDepolari()
+                        break
                 }
 
             }
@@ -362,6 +366,9 @@
                     case "TurkTelekomHaberlesmeYonetimBinasi":
                         turkTelekom('ilce')
                         break
+                    case "tehlikeliDepo":
+                        tehlikeliMaddeDepolari('ilce')
+                        break
                 }
             }
 
@@ -395,6 +402,9 @@
                         break;
                     case "TurkTelekomHaberlesmeYonetimBinasi":
                         turkTelekom('ilce')
+                        break
+                    case "tehlikeliDepo":
+                        tehlikeliMaddeDepolari('ilce')
                         break
                 }
             }
@@ -821,6 +831,39 @@
                 document.getElementById('test').style.zIndex = 0
             }
 
+            function tehlikeliMaddeDepolari(yerleske = "bos") {
+                var geojsonURL = "./fakeDB/tehlikeliMaddeDepolari.geojson";
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", geojsonURL, true);
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var geojson = JSON.parse(xhr.responseText);
+                    // GeoJSON verilerini işleme
+                    for (var i = 0; i < geojson.features.length; i++) {
+                    var feature = geojson.features[i];
+                    if (yerleske == 'bos') {
+                        var coordinatesX = feature.properties.Field2;
+                        var coordinatesY = feature.properties.Field3
+                        var myIcon = L.icon({
+                                                iconUrl: './ico/tehlikeliDepo.ico',
+                                                iconSize: [32, 32],
+                                            });
+                        var marker = L.marker([coordinatesX, coordinatesY], {
+                                                                icon: myIcon
+                                                            })
+                                                                .addTo(map)
+                                                                .bindPopup(String(feature.properties.Field1+ "<br> Koordinatlar(EPSG 4326): " +coordinatesX + ", " + coordinatesY ))
+                        }
+                    else if (yerleske == 'ilce'){
+                        alert('Tehlikeli Madde Depoları için sadece ~İl Bazında Gösterim~ yapılabilir!!!')
+                    }
+                    }
+                    
+                }
+                };
+                xhr.send();
+                document.getElementById('test').style.zIndex = 0
+            }
     </script>
 
   </body>

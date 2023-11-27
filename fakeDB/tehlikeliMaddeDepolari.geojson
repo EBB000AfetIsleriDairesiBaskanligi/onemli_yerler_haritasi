@@ -1,0 +1,18 @@
+{
+"type": "FeatureCollection",
+"name": "tehlikeliMaddeDepolari",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Field1": "KOZA ALTIN İŞLETMELERİ A.Ş. KAYMAZ ŞUBESİ", "Field2": 39.5182459, "Field3": 31.17943 }, "geometry": { "type": "Point", "coordinates": [ 31.17943, 39.5182459 ] } },
+{ "type": "Feature", "properties": { "Field1": "LİKİTGAZ DAĞITIM VE \nENDÜSTRİ ANONİM \nŞİRKETİ ESKİŞEHİR \nŞUBESİ", "Field2": 39.8234088, "Field3": 30.36086 }, "geometry": { "type": "Point", "coordinates": [ 30.36086, 39.8234088 ] } },
+{ "type": "Feature", "properties": { "Field1": "SERRA SÜNGER VE \nPETROL ÜRÜNLERİ\nSANAYİ VE TİCARET \nANONİM ŞİRKET \nESKİŞEHİR ŞUBESİ", "Field2": 39.7549455, "Field3": 30.6879 }, "geometry": { "type": "Point", "coordinates": [ 30.6879, 39.7549455 ] } },
+{ "type": "Feature", "properties": { "Field1": "SOLAR PATLAYICI \nMADDELER SANAYİ A.Ş.", "Field2": 39.465796, "Field3": 30.722089 }, "geometry": { "type": "Point", "coordinates": [ 30.722089, 39.465796 ] } },
+{ "type": "Feature", "properties": { "Field1": "PAŞABAHÇE CAM SANAYİ \nVE TİC. A.Ş. ESKİŞEHİR \nFABRİKASI ŞUBESİ", "Field2": 39.7423044, "Field3": 30.6621409 }, "geometry": { "type": "Point", "coordinates": [ 30.6621409, 39.7423044 ] } },
+{ "type": "Feature", "properties": { "Field1": "ARÇELİK A.Ş. BUZDOLABI \nFABRİKASI", "Field2": 39.7460166, "Field3": 30.6181 }, "geometry": { "type": "Point", "coordinates": [ 30.6181, 39.7460166 ] } },
+{ "type": "Feature", "properties": { "Field1": "AYGAZ A.Ş. ESKİŞEHİR \nDOLUM TESİSİ ŞUBESİ", "Field2": 39.8128998, "Field3": 30.43637 }, "geometry": { "type": "Point", "coordinates": [ 30.43637, 39.8128998 ] } },
+{ "type": "Feature", "properties": { "Field1": "BİRLİK SÜNGER KİMYA \nSANAYİ VE TİCARET A.Ş.", "Field2": 39.7401605, "Field3": 30.653284 }, "geometry": { "type": "Point", "coordinates": [ 30.653284, 39.7401605 ] } },
+{ "type": "Feature", "properties": { "Field1": "ESKİM KİMYA SANAYİ \nTİCARET A.Ş.", "Field2": 39.7407697, "Field3": 30.6342 }, "geometry": { "type": "Point", "coordinates": [ 30.6342, 39.7407697 ] } },
+{ "type": "Feature", "properties": { "Field1": "ESPOL SÜNGER KİMYA \nSANAYİ LTD. ŞTİ.", "Field2": 39.7491169, "Field3": 30.64616 }, "geometry": { "type": "Point", "coordinates": [ 30.64616, 39.7491169 ] } },
+{ "type": "Feature", "properties": { "Field1": "MAGNESİT A.Ş.", "Field2": 39.7432566, "Field3": 30.19814 }, "geometry": { "type": "Point", "coordinates": [ 30.19814, 39.7432566 ] } }
+]
+}
