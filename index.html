@@ -85,6 +85,7 @@
                             <option value="LojistikDestek">Lojistik Destek Birimleri</option>
                             <option value="TurkTelekomHaberlesmeYonetimBinasi">Türk Telekom Haberleşme Yönetim Binaları</option>
                             <option value="tehlikeliDepo">Tehlikeli Madde Depoları</option>
+                            <option value="cadirkent">Çadırkent-Konteynerkent</option>
                         </select>
                         <button class="my-2 btn btn-primary" onclick="veriSecimiOnayla()">Veri Seçimini Onayla</button>
                     </div>
@@ -332,6 +333,9 @@
                     case "tehlikeliDepo":
                         tehlikeliMaddeDepolari()
                         break
+                    case "cadirkent":
+                        cadirKent()
+                        break;
                 }
 
             }
@@ -369,6 +373,9 @@
                     case "tehlikeliDepo":
                         tehlikeliMaddeDepolari('ilce')
                         break
+                    case "cadirkent":
+                        cadirKent("ilce")
+                        break;
                 }
             }
 
@@ -406,6 +413,9 @@
                     case "tehlikeliDepo":
                         tehlikeliMaddeDepolari('ilce')
                         break
+                    case "cadirkent":
+                        cadirKent("ilce")
+                        break;
                 }
             }
 
@@ -864,6 +874,58 @@
                 xhr.send();
                 document.getElementById('test').style.zIndex = 0
             }
+    
+            function cadirKent(yerleske = "bos") {
+                var geojsonURL = "./fakeDB/cadirkent.geojson";
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", geojsonURL, true);
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var geojson = JSON.parse(xhr.responseText);
+                    // GeoJSON verilerini işleme
+                    for (var i = 0; i < geojson.features.length; i++) {
+                    var feature = geojson.features[i];
+                    if (yerleske == 'bos') {
+                        var coordinates = feature.geometry.coordinates;
+                        var descType = feature.properties.descriptio
+                        if (descType == "Konteynerkent"){
+                            L.polygon(feature.geometry.coordinates[0], {
+                                                                fillOpacity: 0, // İçi doldurmayacak şekilde ayarlayın
+                                                                color: "blue",
+                                                            }).addTo(map)
+                                                                .bindPopup(String("Tepebaşı/Muttalip <br> Ada/Parsel: " + feature.properties.Name+ "<br> Tip: " + feature.properties.descriptio ));
+                
+                        }
+                        else if (descType == "Çadırkent"){
+                            L.polygon(feature.geometry.coordinates[0], {
+                                                                fillOpacity: 0, // İçi doldurmayacak şekilde ayarlayın
+                                                                color: "red",
+                                                            }).addTo(map)
+                                                                .bindPopup(String("Tepebaşı/Muttalip <br> Ada/Parsel: " + feature.properties.Name+ "<br> Tip: " + feature.properties.descriptio));
+                
+                        }
+                        else if (descType == "Parsel-Mera"){
+                            L.polygon(feature.geometry.coordinates[0], {
+                                                                fillOpacity: 0, // İçi doldurmayacak şekilde ayarlayın
+                                                                color: "green",
+                                                            }).addTo(map)
+                                                                .bindPopup(String("Tepebaşı/Muttalip <br> Ada/Parsel: " + feature.properties.Name+ "<br> Tip: " + feature.properties.descriptio));
+                
+                        }
+                        
+                        }
+                        
+                    else if (yerleske == 'ilce'){
+                        alert('Tehlikeli Madde Depoları için sadece ~İl Bazında Gösterim~ yapılabilir!!!')
+                    }
+                    }
+                    
+                }
+                };
+                xhr.send();
+                document.getElementById('test').style.zIndex = 0
+            }
+    
     </script>
 
   </body>
