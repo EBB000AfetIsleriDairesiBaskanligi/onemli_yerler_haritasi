@@ -32,14 +32,14 @@
       </div>
 
       <!-- NAVBAR -->
-      <div id="test" style="width: 90%; height: 50vh; position: absolute; top: 20vh; left: 5%; z-index: 2;">
-        <div id="controlButonlari" class="d-flex justify-content-around">
+      <div id="test" style="width: 90%;  position: absolute; top: 20vh; left: 5%; z-index: 2;">
+        <div id="controlButonlari" style="position: absolute; left: 4.25%;">
             <button class="btn btn-danger" onclick="sinirIslemleri()">Sınır İşlemleri</button>
             <button class="btn btn-danger" onclick="veriGosterButton()">Veri İşlemleri</button>
         </div>
-        <div id="islemAlani" class="my-2 ">
+        <div id="islemAlani" class="my-5 ">
             <!-- Sinir İşlemleri -->
-            <div id="SinirIslemleri" hidden>
+            <div id="SinirIslemleri"  hidden>
                 <!-- İl Sınırı -->
                 <div class="my-2">
                     <button class="btn btn-primary w-25" onclick="ilSiniriMenusuGoster()">İl Sınırı İşlemleri</button>
@@ -86,6 +86,7 @@
                             <option value="TurkTelekomHaberlesmeYonetimBinasi">Türk Telekom Haberleşme Yönetim Binaları</option>
                             <option value="tehlikeliDepo">Tehlikeli Madde Depoları</option>
                             <option value="cadirkent">Çadırkent-Konteynerkent</option>
+                            <option value="afetMezari">Afet İçin Ayrılan Mezar Adaları</option>
                         </select>
                         <button class="my-2 btn btn-primary" onclick="veriSecimiOnayla()">Veri Seçimini Onayla</button>
                     </div>
@@ -336,6 +337,9 @@
                     case "cadirkent":
                         cadirKent()
                         break;
+                    case "afetMezari":
+                        afetMezar()
+                        break
                 }
 
             }
@@ -376,6 +380,9 @@
                     case "cadirkent":
                         cadirKent("ilce")
                         break;
+                    case "afetMezari":
+                        afetMezar("ilce")
+                        break
                 }
             }
 
@@ -416,6 +423,9 @@
                     case "cadirkent":
                         cadirKent("ilce")
                         break;
+                    case "afetMezari":
+                        afetMezar("ilce")
+                        break
                 }
             }
 
@@ -926,6 +936,28 @@
                 document.getElementById('test').style.zIndex = 0
             }
     
+            function afetMezar(yerleske = "bos") {
+                var geojsonURL = "./fakeDB/afet-mezar.geojson";
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", geojsonURL, true);
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var geojson = JSON.parse(xhr.responseText);
+                    for (var i = 0; i < geojson.features.length; i++) 
+                    {
+                    var feature = geojson.features[i];
+                    var coordinates = feature.geometry.coordinates;
+                    L.polygon(feature.geometry.coordinates[0], {
+                                                                    fillOpacity: 0, // İçi doldurmayacak şekilde ayarlayın
+                                                                    color: "red",
+                                                                }).addTo(map)
+                                                                    .bindPopup(String("Asri Mezarlık <br>" + feature.properties.Desc));
+                    }
+                }
+                };
+                xhr.send();
+                document.getElementById('test').style.zIndex = 0
+            }
     </script>
 
   </body>
