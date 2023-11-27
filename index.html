@@ -82,6 +82,7 @@
                             <option value="İtfaiyeYerleşkeleri">İtfaiye Yerleşkeleri</option>
                             <option value="ToplanmaAlanlari">Toplanma Alanları</option>
                             <option value="Heliport">Heliportlar</option>
+                            <option value="LojistikDestek">Lojistik Destek Birimleri</option>
                         </select>
                         <button class="my-2 btn btn-primary" onclick="veriSecimiOnayla()">Veri Seçimini Onayla</button>
                     </div>
@@ -320,6 +321,9 @@
                     case "Heliport":
                         heliport()
                         break;
+                    case "LojistikDestek":
+                        lojDes()
+                        break;    
                 }
 
             }
@@ -348,6 +352,9 @@
                     case "Heliport":
                         heliport('ilce')
                         break;
+                    case "LojistikDestek":
+                        lojDes('ilce')
+                        break;
                 }
             }
 
@@ -375,6 +382,9 @@
                         break;
                     case "Heliport":
                         heliport('ilce')
+                        break;
+                    case "LojistikDestek":
+                        lojDes('ilce')
                         break;
                 }
             }
@@ -721,6 +731,40 @@
                                                             })
                                                                 .addTo(map)
                                                                 .bindPopup(String(feature.properties.Field1 +" <br> Koordinatlar(EPSG 4326): " +coordinatesX + ", " + coordinatesY ))
+                        }
+                    else if (yerleske == 'ilce'){
+                        alert('Heliportlar için sadece ~İl Bazında Gösterim~ yapılabilir!!!')
+                    }
+                    }
+                    
+                }
+                };
+                xhr.send();
+                document.getElementById('test').style.zIndex = 0
+            }
+
+            function lojDes(yerleske = 'bos') {
+                var geojsonURL = "./fakeDB/lojistikDestek.geojson";
+                var xhr = new XMLHttpRequest();
+                xhr.open("GET", geojsonURL, true);
+                xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    var geojson = JSON.parse(xhr.responseText);
+                    // GeoJSON verilerini işleme
+                    for (var i = 0; i < geojson.features.length; i++) {
+                    var feature = geojson.features[i];
+                    if (yerleske == 'bos') {
+                        var coordinatesX = feature.properties.Field6;
+                        var coordinatesY = feature.properties.Field5
+                        var myIcon = L.icon({
+                                                iconUrl: './ico/warehouse.ico',
+                                                iconSize: [32, 32],
+                                            });
+                        var marker = L.marker([coordinatesX, coordinatesY], {
+                                                                icon: myIcon
+                                                            })
+                                                                .addTo(map)
+                                                                .bindPopup(String(feature.properties.Field1 + "<br>"+ feature.properties.Field2 +" <br> Koordinatlar(EPSG 4326): " +coordinatesX + ", " + coordinatesY ))
                         }
                     else if (yerleske == 'ilce'){
                         alert('Heliportlar için sadece ~İl Bazında Gösterim~ yapılabilir!!!')
